@@ -2,11 +2,11 @@ FROM golang:1.19
 
 WORKDIR /app
 
-COPY mac-app/go.mod .
+COPY go.mod .
 
 RUN go mod download
 
-COPY mac-app/. .
+COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o app
 
